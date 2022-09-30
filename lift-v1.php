@@ -2,7 +2,7 @@
 
 function getFloor(int $currentFloor, int|null $requestFloor, array $buttons): int|null
 {
-    if ($requestFloor == 0 || count($buttons) == 0) {
+    if ($requestFloor == null && count($buttons) == 0) {
         return null;
     }
     if ($requestFloor != null){
