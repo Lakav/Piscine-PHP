@@ -1,11 +1,11 @@
 <?php
 
-function sayHello()
+function sayHello() :string
 {
     return "Hello";
 }
 
-function sayHelloTo(string $name)
+function sayHelloTo(string $name):string
 {
     return "Hello $name";
 }
