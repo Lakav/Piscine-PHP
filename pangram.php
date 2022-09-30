@@ -1,7 +1,7 @@
 <?php
 
 
-    function isPangram($param) {
+    function isPangram($param) : bool{
 
         $sentences = strtolower(trim($param));
         $letters = str_split("thequickbrownfoxjumpsoverthelazydog");
