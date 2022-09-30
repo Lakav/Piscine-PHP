@@ -2,22 +2,22 @@
 
 function getFloor(int $currentFloor, int|null $requestFloor, array $buttons): int|null
 {
-    if ($requestFloor == 0 || $buttons == 0) {
+    if ($requestFloor == 0 || count($buttons) == 0) {
         return null;
     }
-    if ($currentFloor == 0){
-        return null;
+    if ($requestFloor != null){
+        return $requestFloor;
     }
     if (count($buttons) > 0){
         $nearest = $buttons[0];
         foreach ($buttons as $floor) {
-            if (abs($nearest - $requestFloor) < abs($nearest - $currentFloor)) {
-                return $nearest = $floor;
+            if (abs($currentFloor - $floor) < abs($currentFloor - $nearest)) {
+                $nearest = $floor;
             }
         }
-        return $requestFloor;
+        return $nearest;
     }
-    return null;
+    return $requestFloor;
 }
 
 function getDirection(int $currentFloor, int|null $requestFloor, array $buttons): int
